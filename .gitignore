@@ -1,0 +1,11 @@
+/node_modules
+
+/dist
+
+*.env
+
+client.http
+
+*.db
+
+*.db-journal
