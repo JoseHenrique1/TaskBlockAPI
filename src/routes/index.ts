@@ -4,6 +4,7 @@ import { userCreateRoute } from "./user/userCreateRoute";
 import { userLoginRoute } from "./user/userLoginRoute";
 
 import { taskCreateRoute } from "./task/taskCreateRoute";
+import { taskAllRoute } from "./task/taskAllRouter";
 
 
 export async function routes (server:FastifyInstance) {
@@ -11,6 +12,7 @@ export async function routes (server:FastifyInstance) {
     server.register(userLoginRoute, {prefix: "/users"});
 
     server.register(taskCreateRoute, {prefix: "/tasks"});
+    server.register(taskAllRoute, {prefix: "/tasks"});
 };
 
 //TASK: title, description, colorBackground, isFavorito, idUser ;
