@@ -21,7 +21,7 @@ interface JwtPayload{
 
 const opts = {
   schema: {
-    header: {
+    headers: {
         type: 'object',
         properties: {
             'token': { type: 'string' }
