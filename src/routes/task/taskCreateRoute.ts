@@ -51,6 +51,6 @@ export async function taskCreateRoute (server:FastifyInstance) {
       userId: id
     };  
     let task = await prisma.task.create({data})
-    reply.code(200).send({statusCode:200})
+    reply.code(200).send({statusCode:200, task})
   })
 };
