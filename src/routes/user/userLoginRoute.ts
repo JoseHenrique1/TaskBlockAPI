@@ -35,10 +35,7 @@ export async function userLoginRoute (server:FastifyInstance) {
       where: {
         password,
         email
-      }, 
-      select: {
-        id: true
-      } 
+      }
     })
     
     if(!user) { // se o usuario não existir, nada será retornado

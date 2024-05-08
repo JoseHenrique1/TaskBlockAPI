@@ -1,10 +1,15 @@
 import fastify from 'fastify';
+import cors from '@fastify/cors'
 import 'dotenv/config';
 
 import { routes } from './routes';
 
 const PORT = process.env.PORT;
 const server = fastify();
+
+server.register(cors, { 
+  origin: "*"
+}) 
 
 server.get('/', async (request, reply) => {
   return 'pong\n'
