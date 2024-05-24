@@ -1,6 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { prisma } from "../../database/prisma-client";
-import { verify } from "jsonwebtoken";
+import { taskCreate } from "../../controllers/task/taskCreate";
 
 const JWT_SECRET_KEY : string = process.env.JWT_SECRET_KEY!;
 
@@ -42,15 +41,5 @@ const opts = {
 };
 
 export async function taskCreateRoute (server:FastifyInstance) {
-  server.post<{Body:bodyInterface, Headers:headerInterface}>('/', opts, async (request, reply) => {
-    const token = request.headers.token;
-    const body = request.body;
-    let { id } = verify(token, JWT_SECRET_KEY) as JwtPayload;
-    let data = {
-      ...body,
-      userId: id
-    };  
-    let task = await prisma.task.create({data})
-    reply.code(200).send({statusCode:200, task})
-  })
+  server.post('/', opts, taskCreate)
 };

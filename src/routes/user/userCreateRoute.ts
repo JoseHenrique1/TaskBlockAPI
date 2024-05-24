@@ -1,11 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { prisma } from "../../database/prisma-client";
-
-interface bodyInterface {
-  name: string,
-  email: string,
-  password: string
-};
+import { userCreate } from "../../controllers/user/userCreate";
 
 const opts = {
   schema: {
@@ -22,16 +16,5 @@ const opts = {
 };
 
 export async function userCreateRoute (server:FastifyInstance) {
-  server.post<{Body:bodyInterface}>('/', opts, async (request, reply) => {
-    let name = request.body.name;
-    let password = request.body.password;
-    let email = request.body.email;
-    let data = {
-      name,
-      password,
-      email
-    }
-    const user = await prisma.user.create({data})
-    reply.code(200).send({statusCode:200})
-  })
+  server.post('/', opts, userCreate)
 };
