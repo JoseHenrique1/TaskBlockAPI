@@ -1,48 +1,47 @@
-# Nome do projeto
+# TaskBlock Api
 
-<img src="imagem.png" alt="Exemplo imagem">
-
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
-
+> Api do projeto taskblock.
 
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-* Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
-* Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
-* Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
+* Possuir o `Node` instalado.
+* Breve conhecimento em apis. 
 
-## 🚀 Instalando <nome_do_projeto>
+## 🚀 Instalando TaskBlock Api
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+Para instalar o TaskBlock Api, siga estas etapas:
 
-Linux e macOS:
+Instale as dependências:
 ```
-<comando_de_instalação>
-```
-
-Windows:
-```
-<comando_de_instalação>
+npm i
 ```
 
-## ☕ Usando <nome_do_projeto>
+Configure o .env:
+```
+DATABASE_URL="file:./dev.db"
+PORT="8080"
+JWT_SECRET_KEY="sua chave aqui"
+```
 
-Para usar <nome_do_projeto>, siga estas etapas:
+Migração: 
+```
+npx prisma migrate dev --name init
+```
+
+
+## ☕ Usando TaskBlock Api
+
+Para usar TaskBlock Api, siga estas etapas:
 
 ```
-<exemplo_de_uso>
+npm run dev
 ```
-
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
-
 
 
 ## 🤝 Colaboradores
-
-
 
 <table>
   <tr>
@@ -56,5 +55,3 @@ Adicione comandos de execução e exemplos que você acha que os usuários achar
     </td>
   </tr>
 </table>
-
-
