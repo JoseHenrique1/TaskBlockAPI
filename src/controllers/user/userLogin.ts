@@ -28,6 +28,8 @@ export async function userLogin (request: FastifyRequest<{Body:bodyInterface}>, 
     reply.code(404).send({statusCode:404})
   }
 
-  let token = sign(user!, JWT_SECRET_KEY, {mutatePayload: true});    
+  const id = user?.id;
+
+  let token = sign({id}, JWT_SECRET_KEY, {mutatePayload: true});    
   reply.code(200).send({statusCode:200, token, user})
 }
